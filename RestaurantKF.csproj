@@ -6,11 +6,7 @@
 
   <ItemGroup>
     <Folder Include="client-app\actions\" />
-    <Folder Include="client-app\components\" />
     <Folder Include="client-app\containers\" />
-    <Folder Include="client-app\styles\" />
-    <Folder Include="client-app\store\" />
-    <Folder Include="client-app\reducers\" />
     <Folder Include="wwwroot\dist\" />
   </ItemGroup>
 
