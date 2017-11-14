@@ -8,6 +8,7 @@ export default {
     },
     devtool: 'cheap-module-eval-source-map', // more info:https://webpack.js.org/guides/development/#using-source-maps and https://webpack.js.org/configuration/devtool/
     entry: [
+        'react-hot-loader/patch',
         // must be first entry to properly set public path
         path.resolve(process.cwd(), 'client-app', 'index.js') // Defining path seems necessary for this to work consistently on Windows machines.
     ],

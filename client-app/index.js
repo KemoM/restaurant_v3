@@ -10,20 +10,20 @@ import './styles/styles.scss'; // Yep, that's right. You can import SASS/CSS fil
 const store = configureStore();
 
 render(
-    <AppContainer>
-        <Root store={store} history={history} />
-    </AppContainer>,
-    document.getElementById('app')
+  <AppContainer>
+    <Root store={store} history={history} />
+  </AppContainer>,
+  document.getElementById('app')
 );
 
 if (module.hot) {
-    module.hot.accept('./components/Root', () => {
-        const NewRoot = require('./components/Root').default;
-        render(
-            <AppContainer>
-                <NewRoot store={store} history={history} />
-            </AppContainer>,
-            document.getElementById('app')
-        );
-    });
+  module.hot.accept('./components/Root', () => {
+    const NewRoot = require('./components/Root').default; // eslint-disable-line global-require
+    render(
+      <AppContainer>
+        <NewRoot store={store} history={history} />
+      </AppContainer>,
+      document.getElementById('app')
+    );
+  });
 }
