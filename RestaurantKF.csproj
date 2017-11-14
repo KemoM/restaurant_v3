@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="build\" />
     <Folder Include="client-app\actions\" />
     <Folder Include="client-app\containers\" />
     <Folder Include="tools\scripts\" />
