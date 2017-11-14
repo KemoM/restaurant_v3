@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "lint": "npm run lint:js",
-    "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern tools/scripts",
+    "lint:eslint": "eslint client-app",
     "lint:js": "npm run lint:eslint -- . "
   },
   "settings": {
