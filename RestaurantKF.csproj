@@ -7,6 +7,7 @@
   <ItemGroup>
     <Folder Include="client-app\actions\" />
     <Folder Include="client-app\containers\" />
+    <Folder Include="tools\scripts\" />
     <Folder Include="wwwroot\dist\" />
   </ItemGroup>
 

@@ -9,10 +9,10 @@ export default {
     devtool: 'cheap-module-eval-source-map', // more info:https://webpack.js.org/guides/development/#using-source-maps and https://webpack.js.org/configuration/devtool/
     entry: [
         // must be first entry to properly set public path
-        path.resolve(__dirname, 'client-app', 'index.js') // Defining path seems necessary for this to work consistently on Windows machines.
+        path.resolve(process.cwd(), 'client-app', 'index.js') // Defining path seems necessary for this to work consistently on Windows machines.
     ],
     output: {
-        path: path.resolve(__dirname, 'wwwroot', 'dist'), // Note: Physical files are only output by the production build task `npm run build`.
+        path: path.resolve(process.cwd(), 'wwwroot', 'dist'), // Note: Physical files are only output by the production build task `npm run build`.
         publicPath: '/',
         filename: 'bundle.js'
     },
@@ -24,7 +24,7 @@ export default {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new HtmlWebpackPlugin({     // Create HTML file that includes references to bundled CSS and JS.
-            template: 'client-app/index.ejs',
+            template: 'client-app/index.ejs',  //THIS IS NOT USED BECAUSE WE ARE USING MS .NET VIEW/HOME/INDEX
             minify: {
                 removeComments: true,
                 collapseWhitespace: true
@@ -40,8 +40,7 @@ export default {
                 use: {
                     loader: "babel-loader",
                     options: {
-                        "babelrc": false,
-                        "presets": [["es2015", { "modules": false }], "react"]
+                        
                     }
                 }
             },
