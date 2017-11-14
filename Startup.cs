@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.SpaServices.Webpack;
 
 namespace RestaurantKF
 {
@@ -33,6 +34,14 @@ namespace RestaurantKF
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                //NOT SURE IF THIS WORKS YET - need to finish webpack config to work!!!
+                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
+                {
+                    HotModuleReplacement = true,
+                    ReactHotModuleReplacement = true,
+                    ConfigFile = "tools/webpack/webpack.config.aspnet.js"
+                });
             }
 
             app.UseStaticFiles();

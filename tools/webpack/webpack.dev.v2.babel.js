@@ -22,10 +22,12 @@ const plugins = [
 module.exports = require('./webpack.base.babel')({
   // Add hot reloading in development
   entry: [
+    'babel-polyfill',
     'react-hot-loader/patch',
-    'eventsource-polyfill', // Necessary for hot reloading with IE
+    'eventsource-polyfill',
+    // Necessary for hot reloading with IE
     'webpack-hot-middleware/client?reload=true',
-    path.join(process.cwd(), 'client-app/index.js'), // Start with js/app.js
+    path.join(process.cwd(), 'client-app/index.js'),
   ],
 
   // Don't use hashes in dev mode for better performance
