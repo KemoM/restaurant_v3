@@ -12,15 +12,15 @@ process.noDeprecation = true;
 
 module.exports = (options) => ({
   entry: options.entry,
-  output: Object.assign({ // Compile into js/build.js
-    path: path.resolve(process.cwd(), 'build'),
+  output: Object.assign({
+    path: path.resolve(process.cwd(), 'wwwroot/dist'),
     publicPath: '/',
   }, options.output), // Merge with env dependent settings
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/, // Transform all .js files required somewhere with Babel
-        exclude: /node_modules/,
+        exclude: '/node_modules',
         use: {
           loader: 'babel-loader',
           options: {
@@ -107,6 +107,7 @@ module.exports = (options) => ({
       '.js',
       '.jsx',
       '.react.js',
+      '.json',
     ],
     mainFields: [
       'browser',

@@ -28,20 +28,19 @@ namespace RestaurantKF
             services.AddMvc();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // This method gets called by the runtime. Use this method to configureS the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
 
-                //NOT SURE IF THIS WORKS YET - need to finish webpack config to work!!!
-                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
-                {
-                    HotModuleReplacement = true,
-                    ReactHotModuleReplacement = true,
-                    ConfigFile = "tools/webpack/webpack.config.aspnet.js"
-                });
+               app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
+               {
+                   HotModuleReplacement = true,
+                   ReactHotModuleReplacement = true,
+                   ConfigFile = "tools/webpack/webpack.aspnet.babel.js"
+               });
             }
 
             app.UseStaticFiles();
