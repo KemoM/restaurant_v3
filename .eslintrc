@@ -1,6 +1,6 @@
 ﻿{
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": [ "airbnb", "eslint:recommended", "plugin:react/recommended" ],
   "env": {
     "browser": true,
     "node": true,
@@ -25,14 +25,17 @@
       "always"
     ],
     "arrow-body-style": [
-      2,
+      "error",
       "as-needed"
     ],
+    "arrow-spacing": "error",
     "class-methods-use-this": 0,
     "comma-dangle": [
       2,
       "always-multiline"
     ],
+    "eqeqeq": "error",
+    "generator-star-spacing": [ "error", "after" ],
     "import/imports-first": 0,
     "import/newline-after-import": 0,
     "import/no-dynamic-require": 0,
@@ -60,15 +63,28 @@
     "max-len": 0,
     "newline-per-chained-call": 0,
     "no-confusing-arrow": 0,
-    "no-console": 1,
+    "no-console": 2,
+    "no-duplicate-imports": "error",
+    "no-eq-null": "error",
+    "no-undefined": "error",
     "no-use-before-define": 0,
-    "prefer-template": 2,
+    "no-useless-computed-key": "error",
+    "no-useless-constructor": "error",
+    "no-useless-rename": "error",
+    "no-var": "error",
+    "prefer-rest-params": "error",
+    "prefer-spread": "error",
+    "prefer-template": "error",
     "react/jsx-filename-extension": [
       1,
       { "extensions": [ ".js", ".jsx" ] }
     ],
     "react/no-unused-prop-types": 0,
     "react/require-default-props": 0,
-    "require-yield": 0
+    "require-yield": 0,
+    "rest-spread-spacing": "error",
+    "semi": "error",
+    "semi-spacing": "error",
+    "yield-star-spacing": [ 2, "after" ]
   }
 }
