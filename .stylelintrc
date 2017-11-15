@@ -1,3 +1,10 @@
 ﻿{
-  "extends": "stylelint-config-standard"
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "rules": {
+    "at-rule-blacklist": [ "debug" ],
+    "scss/at-extend-no-missing-placeholder": true
+  }
 }
