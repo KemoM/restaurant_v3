@@ -14,6 +14,7 @@
   <ItemGroup>
     <Folder Include="client-app\actions\" />
     <Folder Include="client-app\containers\" />
+    <Folder Include="client-app\tests\" />
     <Folder Include="tools\scripts\" />
     <Folder Include="wwwroot\dist\" />
   </ItemGroup>

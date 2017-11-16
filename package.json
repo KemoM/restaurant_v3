@@ -6,7 +6,8 @@
     "lint": "npm run lint:js",
     "lint:eslint": "eslint client-app/**/*.js",
     "lint:js": "npm run lint:eslint -- . ",
-    "stylelint": "stylelint client-app/**/*.css"
+    "stylelint": "stylelint client-app/**/*.css",
+    "test": "jest"
   },
   "settings": {
     "import/resolver": {
@@ -15,14 +16,40 @@
       }
     }
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "client-app/**/*.{js,jsx}",
+      "!client-app/**/*.test.{js,jsx}",
+      "!client-app/index.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 98,
+        "branches": 91,
+        "functions": 98,
+        "lines": 98
+      }
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "client-app"
+    ],
+    "moduleNameMapper": {
+      ".*\\.(css|less|styl|scss|sass)$": "<rootDir>/internals/mocks/cssModule.js",
+      ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/mocks/image.js"
+    },
+    "testRegex": "tests/.*\\.test\\.js$"
+  },
   "dependencies": {
     "immutable": "^3.8.2",
+    "jwt-decode": "^2.2.0",
     "object-assign": "4.1.1",
     "react": "16.1.0",
     "react-dom": "16.1.0",
     "react-redux": "5.0.6",
     "react-router-dom": "4.2.2",
     "redux": "3.7.2",
+    "redux-promise-middleware": "^4.4.2",
     "redux-thunk": "2.2.0",
     "reselect": "^3.0.1"
   },
@@ -31,6 +58,7 @@
     "aspnet-webpack": "^2.0.1",
     "aspnet-webpack-react": "^3.0.0",
     "autoprefixer": "7.1.6",
+    "axios": "0.17.1",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-eslint": "8.0.2",
@@ -62,6 +90,9 @@
     "file-loader": "1.1.5",
     "history": "4.7.2",
     "html-webpack-plugin": "2.30.1",
+    "jest": "21.2.1",
+    "jest-cli": "21.2.1",
+    "jest-enzyme": "^4.0.1",
     "node-sass": "4.6.0",
     "offline-plugin": "4.8.4",
     "postcss": "6.0.14",
@@ -70,11 +101,12 @@
     "react-hot-loader": "3.1.2",
     "react-router-redux": "5.0.0-alpha.6",
     "redux-immutable-state-invariant": "2.1.0",
+    "regenerator-runtime": "0.11.0",
     "sass-loader": "6.0.6",
+    "style-loader": "0.19.0",
     "stylelint": "8.2.0",
     "stylelint-config-standard": "17.0.0",
     "stylelint-scss": "2.1.0",
-    "style-loader": "0.19.0",
     "url-loader": "0.6.2",
     "webpack": "3.8.1",
     "webpack-bundle-analyzer": "2.9.1",
@@ -89,13 +121,19 @@
     "react-router",
     "hot",
     "reload",
-    "hmr",
     "live",
     "edit",
     "webpack",
     "redux",
-    "flux",
     "boilerplate",
-    "starter"
+    "starter",
+    "stylelint",
+    "stylelint-config",
+    "standard",
+    "eslint",
+    "eslintconfig",
+    "lint",
+    "aspnet",
+    "babel"
   ]
 }
