@@ -3,9 +3,7 @@
   "name": "restaurantkf",
   "private": true,
   "scripts": {
-    "lint": "npm run lint:js",
-    "lint:eslint": "eslint client-app/**/*.js",
-    "lint:js": "npm run lint:eslint -- . ",
+    "lint": "eslint client-app/**/*.js",
     "stylelint": "stylelint client-app/**/*.css",
     "test": "jest"
   },

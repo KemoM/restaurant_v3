@@ -5,6 +5,7 @@ import HomePage from './HomePage';
 import ContactUs from './ContactUs';
 import AboutPage from './AboutPage';
 import NotFoundPage from './NotFoundPage';
+import LoginPage from './LoginPage';
 
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
@@ -20,11 +21,14 @@ function App() {
         <NavLink to="/contactus" activeStyle={activeStyle}>Contact Us</NavLink>
         {' | '}
         <NavLink to="/about" activeStyle={activeStyle}>About</NavLink>
+        {' | '}
+        <NavLink to="/login" activeStyle={activeStyle}>Login</NavLink>
       </div>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/contactus" component={ContactUs} />
         <Route path="/about" component={AboutPage} />
+        <Route path="/login" component={LoginPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
