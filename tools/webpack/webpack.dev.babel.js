@@ -32,6 +32,12 @@ export default {
       },
       inject: true,
     }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      Popper: ['popper.js', 'default'],
+    }),
   ],
   module: {
     rules: [
@@ -97,7 +103,7 @@ export default {
       },
       {
         test: /(\.css|\.scss|\.sass)$/,
-        exclude: /node_modules/,
+        //exclude: /node_modules/,
         use: [
           'style-loader',
           {
@@ -118,7 +124,7 @@ export default {
           {
             loader: 'sass-loader',
             options: {
-              includePaths: [path.resolve(__dirname, 'src', 'scss')],
+              includePaths: [path.resolve(__dirname, 'wwwroot/dist', 'scss')],
               sourceMap: true,
             },
           },

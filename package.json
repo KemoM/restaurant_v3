@@ -39,17 +39,21 @@
     "testRegex": "tests/.*\\.test\\.js$"
   },
   "dependencies": {
+    "bootstrap": "4.0.0-beta",
     "immutable": "^3.8.2",
+    "jquery": "3.2.1",
     "jwt-decode": "^2.2.0",
     "object-assign": "4.1.1",
+    "popper.js": "1.12.9",
     "react": "16.1.0",
     "react-dom": "16.1.0",
     "react-redux": "5.0.6",
     "react-router-dom": "4.2.2",
+    "reactstrap": "^5.0.0-alpha.4",
     "redux": "3.7.2",
-    "redux-promise-middleware": "^4.4.2",
+    "redux-promise-middleware": "4.4.2",
     "redux-thunk": "2.2.0",
-    "reselect": "^3.0.1"
+    "reselect": "3.0.1"
   },
   "devDependencies": {
     "add-asset-html-webpack-plugin": "2.1.2",
@@ -75,6 +79,7 @@
     "circular-dependency-plugin": "4.2.1",
     "concurrently": "3.5.0",
     "css-loader": "0.28.7",
+    "enzyme": "3.2.0",
     "eslint": "4.10.0",
     "eslint-config-airbnb": "16.1.0",
     "eslint-config-airbnb-base": "12.1.0",
@@ -109,9 +114,9 @@
     "webpack": "3.8.1",
     "webpack-bundle-analyzer": "2.9.1",
     "webpack-dev-middleware": "1.12.0",
-    "webpack-hot-middleware": "^2.20.0",
+    "webpack-hot-middleware": "2.20.0",
     "webpack-md5-hash": "0.0.5",
-    "webpack-merge": "^4.1.1"
+    "webpack-merge": "4.1.1"
   },
   "keywords": [
     "react",
