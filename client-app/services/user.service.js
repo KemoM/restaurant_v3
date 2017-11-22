@@ -4,10 +4,6 @@ export const userService = {
   login,
   logout,
   register,
-  getAll,
-  getById,
-  update,
-  delete: _delete,
 };
 
 //OPTION 2 - fetch
@@ -56,23 +52,10 @@ function logout() {
   localStorage.removeItem('user');
 }
 
-function getAll() {
-  
-}
-
-function getById(id) { // eslint-disable-line
-  
-}
-
-function register(user) { // eslint-disable-line
-  
-}
-
-function update(user) { // eslint-disable-line
-  
-}
-
-// prefixed function name with underscore because delete is a reserved word in javascript
-function _delete(id) { // eslint-disable-line
-  
+function register(user) {
+  return request({
+    url:    '/authentication/register',
+    method: 'POST',
+    data: user,
+  });
 }

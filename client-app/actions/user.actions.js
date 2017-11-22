@@ -5,9 +5,7 @@ import { history } from '../store/configureStore';
 export const userActions = {
   login,
   logout,
-  //register,
-  //getAll,
-  //delete: _delete,
+  register,
 };
 
 function login(username, password) {
@@ -34,4 +32,25 @@ function login(username, password) {
 function logout() {
   userService.logout();
   return { type: userConstants.LOGOUT };
+}
+
+function register(user) {
+  return (dispatch) => {
+    dispatch(request(user));
+
+    userService.register(user)
+      .then(
+        () => { 
+          dispatch(success());
+          history.push('/login');
+        },
+        (error) => {
+          dispatch(failure(error));
+        }
+      );
+  };
+
+  function request(user) { return { type: userConstants.REGISTER_REQUEST, user }; }
+  function success(user) { return { type: userConstants.REGISTER_SUCCESS, user }; }
+  function failure(error) { return { type: userConstants.REGISTER_FAILURE, error }; }
 }

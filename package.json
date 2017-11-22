@@ -3,6 +3,7 @@
   "name": "restaurantkf",
   "private": true,
   "scripts": {
+    "build": "webpack --config tools/webpack/webpack.aspnet.babel.js",
     "lint": "eslint client-app/**/*.js",
     "stylelint": "stylelint client-app/**/*.css",
     "test": "jest"
