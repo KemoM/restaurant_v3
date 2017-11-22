@@ -1,0 +1,9 @@
+﻿.app-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 $spacer; //defined in default bootstrap variables
+    color: $footer-color; // defined in _variables.scss
+    background: $footer-bg; // defined in _variables.scss
+    @include borders($footer-borders); // defined in custom _variables.scss
+}

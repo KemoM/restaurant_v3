@@ -1,5 +1,4 @@
-/* eslint-disable import/default */
-import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.min.css';
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';

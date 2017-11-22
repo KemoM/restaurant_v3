@@ -1,0 +1,35 @@
+﻿.nav-tabs {
+    .nav-link {
+        color: $gray-600; //defined in _bootstrap-variables.scss
+
+        &.active {
+            color: $gray-800; //defined in _bootstrap-variables.scss
+            background: #fff;
+            border-color: $border-color; // defined in custom _variables.scss
+            border-bottom-color: #fff;
+
+            &:focus {
+                background: #fff;
+                border-color: $border-color; // defined in custom _variables.scss
+                border-bottom-color: #fff;
+            }
+        }
+    }
+}
+
+.tab-content {
+    margin-top: -1px;
+    background: #fff;
+    border: 1px solid $border-color;
+
+    .tab-pane {
+        padding: $spacer; //defined in default bootstrap variables
+    }
+}
+
+.card-block {
+    .tab-content {
+        margin-top: 0;
+        border: 0;
+    }
+}

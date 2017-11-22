@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "bootstrap": "4.0.0-beta",
+    "font-awesome": "^4.7.0",
     "immutable": "^3.8.2",
     "jquery": "3.2.1",
     "jwt-decode": "^2.2.0",
@@ -125,19 +126,16 @@
     "react-router",
     "hot",
     "reload",
-    "live",
-    "edit",
     "webpack",
     "redux",
     "boilerplate",
     "starter",
     "stylelint",
-    "stylelint-config",
-    "standard",
     "eslint",
-    "eslintconfig",
     "lint",
     "aspnet",
-    "babel"
+    "babel",
+    "axios",
+    "authentication"
   ]
 }

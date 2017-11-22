@@ -55,7 +55,7 @@ class RegisterPage extends React.Component {
             <label htmlFor="firstName">
               <input type="text" className="form-control" name="firstName" value={user.firstName} onChange={this.handleChange} />
               {submitted && !user.firstName &&
-               <div className="help-block">First Name is required</div>
+                <div className="help-block">First Name is required</div>
               }
             First Name
             </label>

@@ -17,7 +17,7 @@ export function authentication(state = initialState, action) {
       return state.merge({
         loggedIn: false,
         loggingIn: true,
-        user: action.user,
+        user: null,
       });
     case userConstants.LOGIN_SUCCESS:
       return state.merge({
@@ -29,13 +29,13 @@ export function authentication(state = initialState, action) {
       return state.merge({
         loggedIn: false,
         loggingIn: false,
-        user: action.user,
+        user: null,
       });
     case userConstants.LOGOUT:
       return state.merge({
         loggedIn: false,
         loggingIn: false,
-        user: action.user,
+        user: null,
       });
     default:
       return state;

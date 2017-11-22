@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Switch, NavLink, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import {Container} from 'reactstrap';
 import PrivateRoute from './PrivateRoute';
+import Header from './Header';
+import Footer from './Footer';
 import HomePage from './HomePage';
 import ContactUs from './ContactUs';
 import AboutPage from './AboutPage';
@@ -14,28 +17,24 @@ import RegisterPage from './RegisterPage';
 // component at the top-level.
 
 function App() {
-  const activeStyle = { color: 'blue' };
   return (
-    <div>
-      <div>
-        <NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink>
-        {' | '}
-        <NavLink to="/contactus" activeStyle={activeStyle}>Contact Us</NavLink>
-        {' | '}
-        <NavLink to="/about" activeStyle={activeStyle}>About</NavLink>
-        {' | '}
-        <NavLink to="/login" activeStyle={activeStyle}>Login</NavLink>
-        {' | '}
-        <NavLink to="/register" activeStyle={activeStyle}>Register</NavLink>
+    <div className="app">
+      <Header />
+      <div className="app-body">
+        <main className="main">
+          <Container fluid>
+            <Switch>
+              <PrivateRoute exact path="/" component={HomePage} />
+              <Route path="/contactus" component={ContactUs} />
+              <Route path="/about" component={AboutPage} />
+              <Route path="/login" component={LoginPage} />
+              <Route path="/register" component={RegisterPage} />
+              <Route component={NotFoundPage} />
+            </Switch>
+          </Container>
+        </main>
       </div>
-      <Switch>
-        <PrivateRoute exact path="/" component={HomePage} />
-        <Route path="/contactus" component={ContactUs} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/register" component={RegisterPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <Footer />
     </div>
   );
 }
