@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, NavLink, Route } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
 import HomePage from './HomePage';
 import ContactUs from './ContactUs';
 import AboutPage from './AboutPage';
@@ -25,7 +26,7 @@ function App() {
         <NavLink to="/login" activeStyle={activeStyle}>Login</NavLink>
       </div>
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <PrivateRoute exact path="/" component={HomePage} />
         <Route path="/contactus" component={ContactUs} />
         <Route path="/about" component={AboutPage} />
         <Route path="/login" component={LoginPage} />

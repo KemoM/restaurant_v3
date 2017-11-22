@@ -1,15 +1,15 @@
-﻿import React, { PureComponent } from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { userActions } from '../actions/user.actions';
 
-class LoginPage extends PureComponent {
+class LoginPage extends React.Component {
   constructor(props) {
     super(props);
 
     // reset login status
-    this.props.dispatch(userActions.logout()); //eslint-disable-line
+    //this.props.dispatch(userActions.logout()); //eslint-disable-line
 
     this.state = {
       username: '',

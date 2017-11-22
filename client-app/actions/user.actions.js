@@ -1,5 +1,6 @@
 ﻿import { userConstants } from '../constants/user.constants';
 import { userService } from '../services/user.service';
+import { history } from '../store/configureStore';
 
 export const userActions = {
   login,
@@ -17,7 +18,7 @@ function login(username, password) {
       .then(
         (response) => {
           dispatch(success(response));
-          //history.push('/'); TODO
+          history.push('/');
         },
         (error) => {
           dispatch(failure(error));
