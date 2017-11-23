@@ -62,7 +62,7 @@ class LoginPage extends React.Component {
           <Col xs="12" sm="6">
             <Card>
               <CardHeader>
-                <strong>Inline</strong> Form
+                <strong>Login</strong> Form
               </CardHeader>
               <CardBody>
                 <Form onSubmit={this.handleSubmit} >
