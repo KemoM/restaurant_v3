@@ -101,7 +101,7 @@ class RegisterPage extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const { registering } = state.registration || false;
+  const { registering } = state.registration || false; //NOT IMPLEMENTED YET
   return {
     registering,
   };
