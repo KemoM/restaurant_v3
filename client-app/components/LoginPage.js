@@ -4,6 +4,21 @@ import { connect } from 'react-redux';
 
 import { userActions } from '../actions/user.actions';
 
+import {
+  Row,
+  Col,
+  Button,
+  Card,
+  CardHeader,
+  CardFooter,
+  CardBody,
+  Form,
+  FormFeedback,
+  FormGroup,
+  Label,
+  Input,
+} from 'reactstrap';
+
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
@@ -43,34 +58,34 @@ class LoginPage extends React.Component {
 
     return (
       <div className="app flex-row align-items-center">
-        <h2>Login</h2>
-        <form name="form" onSubmit={this.handleSubmit}>
-          <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>  
-            <label htmlFor="username">
-              <input type="text" className="form-control" name="username" value={username} onChange={this.handleChange} />
-              {submitted && !username &&
-              <div className="help-block">Username is required</div>
-              }
-            Username
-            </label>
-          </div>
-          <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
-            <label htmlFor="password">
-              <input id="password" type="password" className="form-control" name="password" value={password} onChange={this.handleChange} />
-              {submitted && !password &&
-              <div className="help-block">Password is required</div>
-              }
-            Password
-            </label>
-          </div>
-          <div className="form-group">
-            <button className="btn btn-primary">Login</button>
-            {loggingIn &&
-              <img alt="" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-            }
-            <Link to="/register" className="btn btn-link">Register</Link>
-          </div>
-        </form>
+        <Row>
+          <Col xs="12" sm="6">
+            <Card>
+              <CardHeader>
+                <strong>Inline</strong> Form
+              </CardHeader>
+              <CardBody>
+                <Form onSubmit={this.handleSubmit} >
+                  <FormGroup row>
+                    <Label htmlFor="username" className="pr-1">Username</Label>
+                    <Input type="text" id="username" name="username" required value={username} onChange={this.handleChange} />
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label htmlFor="password">Password</Label>
+                    <Input type="password" id="password" name="password" value={password} onChange={this.handleChange} />
+                     {submitted && !password ? <span>Password is required!</span> : ""}
+                  </FormGroup>
+                  
+                  <Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Login</Button>
+                </Form>
+              </CardBody>
+              <CardFooter>
+                <span>Or you want to register: </span>
+                <Link to="/register" className="btn btn-link">Register</Link>
+              </CardFooter>
+            </Card>
+          </Col>
+        </Row>
       </div>
     );
   }

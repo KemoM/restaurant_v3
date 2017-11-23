@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.AspNetCore.StaticFiles;
 
 namespace RestaurantKF
 {
@@ -43,6 +44,14 @@ namespace RestaurantKF
                });
             }
 
+            //StaticFileOptions options = new StaticFileOptions();
+            //var typeProvider = new FileExtensionContentTypeProvider();
+            //if (!typeProvider.Mappings.ContainsKey(".woff2"))
+            //{
+            //    typeProvider.Mappings.Add(".woff2", "application/font-woff2");
+            //}
+            //options.ContentTypeProvider = typeProvider;
+            //app.UseStaticFiles(options);
             app.UseStaticFiles();
 
             app.UseMvc(routes =>

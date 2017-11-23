@@ -17,7 +17,7 @@ class Header extends Component {
     this.logout = this.logout.bind(this);
   }
 
-//TODO - check where these functions should go - picked up from bootstrap template
+  //TODO - check where these functions should go - picked up from bootstrap template
   sidebarToggle(e) {
     e.preventDefault();
     document.body.classList.toggle('sidebar-hidden');
