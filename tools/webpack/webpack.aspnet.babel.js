@@ -1,6 +1,7 @@
 ﻿/* eslint-disable */
 const webpack = require('webpack');
 const path = require('path');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
   resolve: { extensions: ['*', '.js', '.jsx', '.json'] },
@@ -23,7 +24,11 @@ module.exports = {
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default']
-    })
+    }),
+    new ManifestPlugin({
+      fileName: 'my-manifest.json',
+      basePath: '/client-app/'
+      })
     //new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
