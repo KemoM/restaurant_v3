@@ -16,20 +16,3 @@
         }
     }
 }
-
-.tab-content {
-    margin-top: -1px;
-    background: #fff;
-    border: 1px solid $border-color;
-
-    .tab-pane {
-        padding: $spacer; //defined in default bootstrap variables
-    }
-}
-
-.card-block {
-    .tab-content {
-        margin-top: 0;
-        border: 0;
-    }
-}

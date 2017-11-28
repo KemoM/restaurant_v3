@@ -1,0 +1,19 @@
+﻿.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-body {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+
+    .main {
+        flex: 1;
+        min-width: 0;
+    }
+
+    margin-top: $navbar-height; // defined in _variables.scss
+    margin-bottom: $footer-height; // defined in _variables.scss
+}

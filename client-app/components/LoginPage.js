@@ -57,9 +57,9 @@ class LoginPage extends React.Component {
     const { username, password, submitted } = this.state;
 
     return (
-      <div className="app flex-row align-items-center">
+      <div className="flex-row align-items-center">
         <Row>
-          <Col xs="12" sm="6">
+          <Col md="6">
             <Card>
               <CardHeader>
                 <strong>Login</strong> Form

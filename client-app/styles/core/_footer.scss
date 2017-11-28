@@ -1,6 +1,12 @@
 ﻿.app-footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    /*width: 100%;*/
     display: flex;
     flex-wrap: wrap;
+    height: $footer-height; // defined in _variables.scss
     align-items: center;
     padding: 0 $spacer; //defined in default bootstrap variables
     color: $footer-color; // defined in _variables.scss
