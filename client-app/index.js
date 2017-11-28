@@ -17,7 +17,8 @@ render(
   document.getElementById('app')
 );
 
-registerServiceWorker();
+//This doesn't work in dev env
+//registerServiceWorker();
 
 if (module.hot) {
   module.hot.accept('./components/Root', () => {

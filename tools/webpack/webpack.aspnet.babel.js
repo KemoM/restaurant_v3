@@ -11,7 +11,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(process.cwd(), 'wwwroot', 'dist'),
-    publicPath: '/',
+    publicPath: '/dist/',
     filename: 'aspnetbundle.js'
   },
   plugins: [

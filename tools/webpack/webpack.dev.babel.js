@@ -14,7 +14,7 @@ export default {
   ],
   output: {
     path: path.resolve(process.cwd(), 'wwwroot', 'dist'), // Note: Physical files are only output by the production build task `npm run build`.
-    publicPath: '/',
+    publicPath: '/dist/',
     filename: 'bundle.js',
   },
   plugins: [
