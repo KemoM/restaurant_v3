@@ -5,7 +5,7 @@ import { AppContainer } from 'react-hot-loader';
 import configureStore, { history } from './store/configureStore';
 import Root from './components/Root';
 import './styles/styles.scss'; // Webpack will run the associated loader and plug this into the page.
-import registerServiceWorker from './registerServiceWorker';
+//import registerServiceWorker from './registerServiceWorker';
 
 
 const store = configureStore();

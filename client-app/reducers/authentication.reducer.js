@@ -9,6 +9,7 @@ const initialState = Immutable.Map({
   loggedIn: user ? true: false,
   loggingIn: false,
   user: user,
+  error: null,
 });
 
 export function authentication(state = initialState, action) {
@@ -30,6 +31,7 @@ export function authentication(state = initialState, action) {
         loggedIn: false,
         loggingIn: false,
         user: null,
+        error: action.error,
       });
     case userConstants.LOGOUT:
       return state.merge({

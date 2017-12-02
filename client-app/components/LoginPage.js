@@ -1,9 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
-import { userActions } from '../actions/user.actions';
-
+import { Field, reduxForm } from 'redux-form';  
 import {
   Row,
   Col,
@@ -13,11 +11,21 @@ import {
   CardFooter,
   CardBody,
   Form,
-  FormFeedback,
   FormGroup,
   Label,
   Input,
 } from 'reactstrap';
+
+import { userActions } from '../actions/user.actions';
+import { required } from './forms/validators/field.required';
+import { validate } from './forms/validators/login.validation';
+
+const renderInputField = ({ input, label, type, meta: { touched, error, warning }, ...props }) => (
+  <div>
+    <Input {...input} type={type} {...props} />
+    {touched && error && <div className="text-danger">{error}</div> }
+  </div>
+);
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -51,6 +59,12 @@ class LoginPage extends React.Component {
       dispatch(userActions.login(username, password));
     }
   }
+  
+  renderAlert() {
+    if (this.props.errorMessage) {
+      return (<div><span><strong>Error!</strong> {this.props.errorMessage}</span></div>);
+    }
+  }
 
   render() {
     const { loggingIn } = this.props; //eslint-disable-line
@@ -68,15 +82,15 @@ class LoginPage extends React.Component {
                 <Form onSubmit={this.handleSubmit} >
                   <FormGroup row>
                     <Label htmlFor="username" className="pr-1">Username</Label>
-                    <Input type="text" id="username" name="username" required value={username} onChange={this.handleChange} />
+                    <Field type="text" id="username" name="username" component={renderInputField} value={username} onChange={this.handleChange} />
                   </FormGroup>
                   <FormGroup row>
                     <Label htmlFor="password">Password</Label>
-                    <Input type="password" id="password" name="password" value={password} onChange={this.handleChange} />
-                     {submitted && !password ? <span>Password is required!</span> : ""}
+                    <Field type="password" id="password" name="password" component={renderInputField} value={password} onChange={this.handleChange} />
                   </FormGroup>
                   
-                  <Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Login</Button>
+                  {this.renderAlert()}
+                  <Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o" /> Login</Button>
                 </Form>
               </CardBody>
               <CardFooter>
@@ -93,9 +107,16 @@ class LoginPage extends React.Component {
 
 function mapStateToProps(state) {
   const loggingIn = state.authentication.get('loggingIn');
+  const errorMessage = state.authentication.get('error');
   return {
     loggingIn,
+    errorMessage,
   };
 }
 
-export default connect(mapStateToProps)(LoginPage);
+const formConfiguration = {  
+  form: 'login',
+  validate,
+};
+
+export default connect(mapStateToProps)(reduxForm(formConfiguration)(LoginPage));

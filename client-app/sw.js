@@ -26,32 +26,32 @@ self.addEventListener('install', (e) => {
   );
 });
 
-//Fetch — This gets called once per each HTTP request. Here we check if the requested resource exists in the cache. 
-//If it does, we return the the cached version, otherwise, we request for the resource. 
+//Fetch-This gets called once per each HTTP request. Here we check if the requested resource exists in the cache.
+//If it does, we return the the cached version, otherwise, we request for the resource.
 self.addEventListener('fetch', function(event) {
-   console.log('Fetch')
-   event.respondWith(
-      caches.match(event.request).then(function(response) {
-         return response || fetch(event.request);
-      })
-      .catch(e => {console.error("Error on the cache",e)})
-   );
+  console.log('Fetch'); //eslint-disable-line
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request);
+    })
+      .catch((e) => {console.error("Error on the cache",e);}) //eslint-disable-line
+  );
 });
 
 
-//Activate — This will get called when the Service Worker is activated. 
+//Activate—This will get called when the Service Worker is activated.
 //In here, it will clear the cache, to make sure we retrieve newer versions of our files.
 self.addEventListener("activate", (event) => {
-   const cacheWhitelist = [CACHE_NAME];
-   event.waitUntil(
-      caches.keys()
-         .then((keyList) =>
-           Promise.all(keyList.map(key => {
-             if (!cacheWhitelist.includes(key)) {
-               return caches.delete(key);
-             }
-           }))
-         )
-         .then(() => self.clients.claim())
-   );
+  const cacheWhitelist = [CACHE_NAME];
+  event.waitUntil(
+    caches.keys()
+      .then((keyList) =>
+        Promise.all(keyList.map((key) => {
+          if (!cacheWhitelist.includes(key)) {
+            return caches.delete(key);
+          }
+        }))
+      )
+      .then(() => self.clients.claim())
+  );
 });
