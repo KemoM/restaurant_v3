@@ -20,11 +20,12 @@ import { userActions } from '../actions/user.actions';
 import { required } from './forms/validators/field.required';
 import { validate } from './forms/validators/login.validation';
 
-const renderInputField = ({ input, label, type, meta: { touched, error, warning }, ...props }) => (
-  <div>
+const renderInputField = ({ input, label, type, labelClass, meta: { touched, error, warning }, ...props }) => (
+  <FormGroup row>
+    <Label htmlFor={input.name} className={labelClass}>{label}</Label>
     <Input {...input} type={type} {...props} />
     {touched && error && <div className="text-danger">{error}</div> }
-  </div>
+  </FormGroup>
 );
 
 class LoginPage extends React.Component {
@@ -80,15 +81,8 @@ class LoginPage extends React.Component {
               </CardHeader>
               <CardBody>
                 <Form onSubmit={this.handleSubmit} >
-                  <FormGroup row>
-                    <Label htmlFor="username" className="pr-1">Username</Label>
-                    <Field type="text" id="username" name="username" component={renderInputField} value={username} onChange={this.handleChange} />
-                  </FormGroup>
-                  <FormGroup row>
-                    <Label htmlFor="password">Password</Label>
-                    <Field type="password" id="password" name="password" component={renderInputField} value={password} onChange={this.handleChange} />
-                  </FormGroup>
-                  
+                  <Field type="text" id="username" name="username" label="Username" labelClass="pr-1" component={renderInputField} value={username} onChange={this.handleChange} />
+                  <Field type="password" id="password" name="password" label="Password" component={renderInputField} value={password} onChange={this.handleChange} />
                   {this.renderAlert()}
                   <Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o" /> Login</Button>
                 </Form>
