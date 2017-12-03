@@ -1,8 +1,22 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';  
+import {
+  Row,
+  Col,
+  Button,
+  Card,
+  CardHeader,
+  CardFooter,
+  CardBody,
+  Form,
+} from 'reactstrap';
 
 import { userActions } from '../actions/user.actions';
+import { renderInputField } from './forms/input.field.form.group';
+import { validate } from './forms/validators/register.validation';
+import { required } from './forms/validators/field.required';
 
 class RegisterPage extends React.Component {
   constructor(props) {
@@ -15,7 +29,6 @@ class RegisterPage extends React.Component {
         username: '',
         password: '',
       },
-      submitted: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -36,75 +49,59 @@ class RegisterPage extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    this.setState({ submitted: true });
     const { user } = this.state;
-    const { dispatch } = this.props;
-    if (user.firstName && user.lastName && user.username && user.password) {
+    const { dispatch, valid } = this.props;
+    if (valid) {
       dispatch(userActions.register(user));
     }
   }
 
   render() {
     const { registering  } = this.props;
-    const { user, submitted } = this.state;
+    const { user } = this.state;
     return (
-      <div className="col-md-6 col-md-offset-3">
-        <h2>Register</h2>
-        <form name="form" onSubmit={this.handleSubmit}>
-          <div className={'form-group' + (submitted && !user.firstName ? ' has-error' : '')}>
-            <label htmlFor="firstName">
-              <input type="text" className="form-control" name="firstName" value={user.firstName} onChange={this.handleChange} />
-              {submitted && !user.firstName &&
-                <div className="help-block">First Name is required</div>
-              }
-            First Name
-            </label>
-          </div>
-          <div className={'form-group' + (submitted && !user.lastName ? ' has-error' : '')}>
-            <label htmlFor="lastName">
-              <input type="text" className="form-control" name="lastName" value={user.lastName} onChange={this.handleChange} />
-              {submitted && !user.lastName &&
-                <div className="help-block">Last Name is required</div>
-              }
-            Last Name
-            </label>
-          </div>
-          <div className={'form-group' + (submitted && !user.username ? ' has-error' : '')}>
-            <label htmlFor="username">
-              <input type="text" className="form-control" name="username" value={user.username} onChange={this.handleChange} />
-              {submitted && !user.username &&
-                <div className="help-block">Username is required</div>
-              }
-            Username
-            </label>
-          </div>
-          <div className={'form-group' + (submitted && !user.password ? ' has-error' : '')}>
-            <label htmlFor="password">
-              <input type="password" className="form-control" name="password" value={user.password} onChange={this.handleChange} />
-              {submitted && !user.password &&
-                <div className="help-block">Password is required</div>
-              }
-            Password
-            </label>
-          </div>
-          <div className="form-group">
-            <button className="btn btn-primary">Register</button>
-            {registering && 
-              <img alt="" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-            }
-            <Link to="/login" className="btn btn-link">Cancel</Link>
-          </div>
-        </form>
+      <div className="flex-row align-items-center">
+        <Row>
+          <Col md="6">
+            <Card>
+              <CardHeader>
+                <strong>Register</strong> Form
+              </CardHeader>
+              <CardBody>
+                <Form onSubmit={this.handleSubmit} >
+                  <Field type="text" id="firstName" name="firstName" label="First Name" labelClass="pr-1" component={renderInputField} validate={required} value={user.firstName} onChange={this.handleChange} />
+                  <Field type="text" id="lastName" name="lastName" label="Last Name" component={renderInputField} validate={required} value={user.lastName} onChange={this.handleChange} />
+                  <Field type="text" id="username" name="username" label="Username" labelClass="pr-1" component={renderInputField} value={user.username} onChange={this.handleChange} />
+                  <Field type="password" id="password" name="password" label="Password" component={renderInputField} value={user.password} onChange={this.handleChange} />
+                  <Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o" /> Register</Button>
+                  {registering && 
+                    <img alt="" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                  }
+                </Form>
+              </CardBody>
+              <CardFooter>
+                <span>Or you have an account: </span>
+                <Link to="/login" className="btn btn-link">Cancel</Link>
+              </CardFooter>
+            </Card>
+          </Col>
+        </Row>
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  const { registering } = state.registration || false; //NOT IMPLEMENTED YET
+  const { registering } = state.registration;
   return {
     registering,
+    //errorMessage, //TODO
   };
 }
 
-export default connect(mapStateToProps)(RegisterPage);
+const formConfiguration = {  
+  form: 'register',
+  validate,
+};
+
+export default connect(mapStateToProps)(reduxForm(formConfiguration)(RegisterPage));

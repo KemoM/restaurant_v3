@@ -11,22 +11,12 @@ import {
   CardFooter,
   CardBody,
   Form,
-  FormGroup,
-  Label,
-  Input,
 } from 'reactstrap';
 
 import { userActions } from '../actions/user.actions';
-import { required } from './forms/validators/field.required';
 import { validate } from './forms/validators/login.validation';
+import { renderInputField } from './forms/input.field.form.group';
 
-const renderInputField = ({ input, label, type, labelClass, meta: { touched, error, warning }, ...props }) => (
-  <FormGroup row>
-    <Label htmlFor={input.name} className={labelClass}>{label}</Label>
-    <Input {...input} type={type} {...props} />
-    {touched && error && <div className="text-danger">{error}</div> }
-  </FormGroup>
-);
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -38,7 +28,6 @@ class LoginPage extends React.Component {
     this.state = {
       username: '',
       password: '',
-      submitted: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -53,10 +42,9 @@ class LoginPage extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    this.setState({ submitted: true });
     const { username, password } = this.state;
-    const { dispatch } = this.props;
-    if (username && password) {
+    const { dispatch, valid } = this.props;
+    if (valid) {
       dispatch(userActions.login(username, password));
     }
   }
@@ -69,7 +57,7 @@ class LoginPage extends React.Component {
 
   render() {
     const { loggingIn } = this.props; //eslint-disable-line
-    const { username, password, submitted } = this.state;
+    const { username, password } = this.state;
 
     return (
       <div className="flex-row align-items-center">
@@ -100,7 +88,7 @@ class LoginPage extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const loggingIn = state.authentication.get('loggingIn');
+  const loggingIn = state.authentication.get('loggingIn'); //should be used for loader gif, TODO
   const errorMessage = state.authentication.get('error');
   return {
     loggingIn,

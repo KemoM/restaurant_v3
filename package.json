@@ -140,6 +140,7 @@
     "aspnet",
     "babel",
     "axios",
-    "authentication"
+    "authentication",
+    "redux-form"
   ]
 }
