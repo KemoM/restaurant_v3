@@ -6,8 +6,8 @@ import { registration } from './registration.reducer';
 
 const rootReducer = combineReducers({
   routing: routerReducer,
-  authentication: authentication,
-  registration : registration,
+  authentication,
+  registration,
   form: formReducer,
 });
 
