@@ -14,7 +14,7 @@ export const userService = {
 //    body: JSON.stringify({ username, password }),
 //  };
 
-//  return fetch(config.apiUrl + '/authentication/authenticate', requestOptions) // eslint-disable-line
+//  return fetch(`${config.apiUrl}/authentication/authenticate`, requestOptions)
 //    .then(handleResponse, handleError)
 //    .then((user) => {
 //      // login successful if there's a jwt token in the response
