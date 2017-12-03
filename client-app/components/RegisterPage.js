@@ -57,7 +57,7 @@ class RegisterPage extends React.Component {
   }
 
   render() {
-    const { registering  } = this.props;
+    const { registering, pristine } = this.props;
     const { user } = this.state;
     return (
       <div className="flex-row align-items-center">
@@ -73,7 +73,7 @@ class RegisterPage extends React.Component {
                   <Field type="text" id="lastName" name="lastName" label="Last Name" component={renderInputField} validate={required} value={user.lastName} onChange={this.handleChange} />
                   <Field type="text" id="username" name="username" label="Username" labelClass="pr-1" component={renderInputField} value={user.username} onChange={this.handleChange} />
                   <Field type="password" id="password" name="password" label="Password" component={renderInputField} value={user.password} onChange={this.handleChange} />
-                  <Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o" /> Register</Button>
+                  <Button type="submit" disabled={pristine || registering} size="sm" color="primary"><i className="fa fa-dot-circle-o" /> Register</Button>
                   {registering && 
                     <img alt="" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                   }

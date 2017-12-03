@@ -56,7 +56,7 @@ class LoginPage extends React.Component {
   }
 
   render() {
-    const { loggingIn } = this.props; //eslint-disable-line
+    const { loggingIn, pristine } = this.props; //eslint-disable-line
     const { username, password } = this.state;
 
     return (
@@ -72,7 +72,7 @@ class LoginPage extends React.Component {
                   <Field type="text" id="username" name="username" label="Username" labelClass="pr-1" component={renderInputField} value={username} onChange={this.handleChange} />
                   <Field type="password" id="password" name="password" label="Password" component={renderInputField} value={password} onChange={this.handleChange} />
                   {this.renderAlert()}
-                  <Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o" /> Login</Button>
+                  <Button type="submit" disabled={pristine || loggingIn} size="sm" color="primary"><i className="fa fa-dot-circle-o" /> Login</Button>
                 </Form>
               </CardBody>
               <CardFooter>
