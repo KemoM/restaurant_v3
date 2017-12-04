@@ -43,28 +43,29 @@ module.exports = require('./webpack.base.babel')({
       plugins: [],
     }),
     new UglifyJSPlugin({
+      sourceMap: true,   // enable source maps to map errors (stack traces) to modules
       compress: {
-      warnings: false,
-      screw_ie8: true,
-      conditionals: true,
-      unused: true,
-      comparisons: true,
-      sequences: true,
-      dead_code: true,
-      evaluate: true,
-      if_return: true,
-      join_vars: true
-    },
-    output: {
-      comments: false
-    }
+        warnings: false,
+        screw_ie8: true,
+        conditionals: true,
+        unused: true,
+        comparisons: true,
+        sequences: true,
+        dead_code: true,
+        evaluate: true,
+        if_return: true,
+        join_vars: true,
+      },
+      output: {
+        comments: false,
+      },
     }),
     new ExtractTextPlugin({
       filename: '[name].[contenthash].css',
-      allChunks: true
+      allChunks: true,
     }),
   ],
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
   performance: {
     assetFilter: (assetFilename) => !(/(\.map$)|(^(main\.|favicon\.))/.test(assetFilename)),
   },
