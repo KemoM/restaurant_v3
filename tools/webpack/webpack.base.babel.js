@@ -14,7 +14,7 @@ module.exports = (options) => ({
   entry: options.entry,
   output: Object.assign({
     path: path.resolve(process.cwd(), 'wwwroot/dist'),
-    publicPath: '/',
+    publicPath: '/dist/',
   }, options.output), // Merge with env dependent settings
   module: {
     rules: [
@@ -25,7 +25,6 @@ module.exports = (options) => ({
           loader: 'babel-loader',
           options: {
             plugins: [
-              'react-hot-loader/babel',
             ],
           },
         },
@@ -34,37 +33,24 @@ module.exports = (options) => ({
         // Preprocess our own .css files
         // This is the place to add your own loaders (e.g. sass/less etc.)
         // for a list of loaders, see https://webpack.js.org/loaders/#styling
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        // Preprocess 3rd party .css files located in node_modules
-        test: /\.css$/,
-        include: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        test: /(\.css|\.scss|\.sass)$/,
+        //exclude: /node_modules/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(eot|svg|otf|ttf|woff|woff2)$/,
         use: 'file-loader',
       },
       {
-        test: /\.(jpg|png|gif)$/,
-        use: [
-          'file-loader',
-          {
-            loader: 'image-webpack-loader',
+      test: /\.(jpg|png|gif|svg|pdf|ico)$/,
+      use: [
+        {
+            loader: 'file-loader',
             options: {
-              progressive: true,
-              optimizationLevel: 7,
-              interlaced: false,
-              pngquant: {
-                quality: '65-90',
-                speed: 4,
-              },
+                name: '[path][name]-[hash:8].[ext]'
             },
-          },
-        ],
+        },
+          ]
       },
       {
         test: /\.html$/,
@@ -102,7 +88,7 @@ module.exports = (options) => ({
     new webpack.NamedModulesPlugin(),
   ]),
   resolve: {
-    modules: ['app', 'node_modules'],
+    modules: ['client-app', 'node_modules'],
     extensions: [
       '.js',
       '.jsx',
