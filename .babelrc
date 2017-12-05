@@ -5,13 +5,11 @@
       { "modules": false }
     ],
       "react",
-      "stage-1"
+      "stage-1" //Proposal: this is worth working on, can be changed to stage-3: Candidate: complete spec and initial browser implementations.
     ],
-    "plugins"
-    :
-    [
-      "react-hot-loader/babel",
-      "transform-class-properties",
-      "transform-es2015-spread"
-    ]
+  "plugins": [
+    "react-hot-loader/babel", //not being used in this setup because we are using AspNetCore.SpaServices.Webpack
+    "transform-react-remove-prop-types"
+    //"transform-react-constant-elements", //should be enabled only in production
+  ]
 }

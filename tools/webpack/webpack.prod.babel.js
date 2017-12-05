@@ -7,24 +7,19 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = require('./webpack.base.babel')({
   // In production, we skip all hot-reloading stuff
-  entry: [
-    path.join(process.cwd(), 'client-app/index.js'),
-  ],
-
-  // Utilize long-term caching by adding content hashes (not compilation hashes) to compiled assets
+  entry: {
+    index: path.join(process.cwd(), 'client-app/index.js'),
+    vendor: ['react', 'react-dom', 'react-redux', 'react-router-redux', 'react-router-dom', 'redux', 'redux-form', 'redux-thunk', 'redux-promise-middleware' ],
+  },
   output: {
-    filename: '[name].[chunkhash].js',
-    chunkFilename: '[name].[chunkhash].chunk.js',
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].chunk.js',
   },
 
   plugins: [
-    new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      children: true,
-      minChunks: 2,
-      async: true,
     }),
     new ImageminPlugin({
       disable: false,
@@ -61,7 +56,7 @@ module.exports = require('./webpack.base.babel')({
       },
     }),
     new ExtractTextPlugin({
-      filename: '[name].[contenthash].css',
+      filename: '[name].css',
       allChunks: true,
     }),
   ],
