@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for sw.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="index.html">All files</a> sw.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/20</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿/*
+NOTE:
+In a development environment, you traditionally won't want a service worker installed (since local caching can mess up your ability to 
+iterate on code changes), so there isn't one generated. The local dev HTTP server responds to the request for /servrice-worker.js 
+generated from the service worker registration with a HTML error document, leading to that message being logged in the console. This error 
+can be safely ignored.
+*/
+&nbsp;
+const CACHE_NAME <span class="cstat-no" title="statement not covered" >= 'v1::static</span>';
+&nbsp;
+//This is called only once, when the Service Worker is installed.
+<span class="cstat-no" title="statement not covered" >self.addEventListener('install', <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
+  // once the SW is installed, go ahead and fetch the resources
+  // to make this work offline
+<span class="cstat-no" title="statement not covered" >  e.waitUntil(</span>
+    caches.open(CACHE_NAME).the<span class="fstat-no" title="function not covered" >n(</span>(cache) =&gt;<span class="cstat-no" title="statement not covered" ></span>
+      fetch("/dist/my-manifest.json")
+        .th<span class="fstat-no" title="function not covered" >en</span>((response) =&gt; resp<span class="cstat-no" title="statement not covered" >onse.json())</span>
+        .th<span class="fstat-no" title="function not covered" >en</span>((assets) =&gt;<span class="cstat-no" title="statement not covered" ></span>
+          cache.addAll([
+            "/",
+            assets["aspnetbundle.js"],
+          ])
+        )
+    ).t<span class="fstat-no" title="function not covered" >he</span>n(() =&gt; sel<span class="cstat-no" title="statement not covered" >f.skipWaiting())</span>
+  );
+});
+&nbsp;
+//Fetch-This gets called once per each HTTP request. Here we check if the requested resource exists in the cache.
+//If it does, we return the the cached version, otherwise, we request for the resource.
+<span class="cstat-no" title="statement not covered" >self.addEventListener('fetch', <span class="fstat-no" title="function not covered" >fu</span>nction(event) {</span>
+<span class="cstat-no" title="statement not covered" >  console.log('Fetch'); </span>//eslint-disable-line
+<span class="cstat-no" title="statement not covered" >  event.respondWith(</span>
+    caches.match(event.request).the<span class="fstat-no" title="function not covered" >n(</span>function(response) {
+<span class="cstat-no" title="statement not covered" >      return response || fetch(event.request)</span>;
+    })
+      .c<span class="fstat-no" title="function not covered" >at</span>ch((e) =&gt; {c<span class="cstat-no" title="statement not covered" >onsole.error("Error on the cache",e);}) </span>//eslint-disable-line
+  );
+});
+&nbsp;
+&nbsp;
+//Activate—This will get called when the Service Worker is activated.
+//In here, it will clear the cache, to make sure we retrieve newer versions of our files.
+<span class="cstat-no" title="statement not covered" >self.addEventListener("activate", <span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {</span>
+  const cacheWhitelist <span class="cstat-no" title="statement not covered" >= [CACHE_NAME</span>];
+<span class="cstat-no" title="statement not covered" >  event.waitUntil(</span>
+    caches.keys()
+      .<span class="fstat-no" title="function not covered" >th</span>en((keyList) =&gt;<span class="cstat-no" title="statement not covered" ></span>
+        Promise.all(keyList.ma<span class="fstat-no" title="function not covered" >p(</span>(key) =&gt; {
+<span class="cstat-no" title="statement not covered" >          if (!cacheWhitelist.includes(key)) {</span>
+<span class="cstat-no" title="statement not covered" >            return caches.delete(key)</span>;
+          }
+        }))
+      )
+      .<span class="fstat-no" title="function not covered" >th</span>en(() =&gt; se<span class="cstat-no" title="statement not covered" >lf.clients.claim())</span>
+  );
+});<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Dec 06 2017 18:51:06 GMT+0100 (Central European Standard Time)
+</div>
+</div>
+<script src="prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="sorter.js"></script>
+</body>
+</html>

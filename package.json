@@ -8,10 +8,12 @@
     "prodbuild": "webpack --config tools/webpack/webpack.prod.babel.js",
     "lint": "eslint client-app/**/*.js",
     "stylelint": "stylelint client-app/**/*.css",
-    "test": "jest --no-cache --coverage",
+    "test": "jest --no-cache",
+    "testc": "jest --no-cache --coverage",
     "flow": "flow"
   },
   "jest": {
+    "setupFiles": [ "./tools/jestsetup.js" ],
     "collectCoverageFrom": [
       "client-app/**/*.{js,jsx}",
       "!client-app/**/*.test.{js,jsx}",
@@ -25,15 +27,10 @@
         "lines": 98
       }
     },
-    "moduleDirectories": [
-      "node_modules",
-      "client-app"
-    ],
     "moduleNameMapper": {
-      ".*\\.(css|less|styl|scss|sass)$": "<rootDir>/internals/mocks/cssModule.js",
-      ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/mocks/image.js"
+      ".*\\.(css|less|styl|scss|sass)$": "<rootDir>/tools/mocks/jestMock.js",
+      ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/mocks/jestMock.js"
     },
-    "testRegex": "tests/.*\\.test\\.js$",
     "bail": true
   },
   "dependencies": {

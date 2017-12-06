@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="client-app\tests\" />
     <Folder Include="tools\scripts\" />
     <Folder Include="wwwroot\dist\" />
   </ItemGroup>

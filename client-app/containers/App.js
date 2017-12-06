@@ -6,7 +6,7 @@ import PrivateRoute from '../components/PrivateRoute';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HomePage from './HomePage';
-import ContactUs from './ContactUs';
+import ContactUsPage from './ContactUsPage';
 import AboutPage from './AboutPage';
 import NotFoundPage from './NotFoundPage';
 import LoginPage from './LoginPage';
@@ -25,7 +25,7 @@ function App() {
           <Container fluid>
             <Switch>
               <PrivateRoute exact path="/" component={HomePage} />
-              <Route path="/contactus" component={ContactUs} />
+              <Route path="/contactus" component={ContactUsPage} />
               <Route path="/about" component={AboutPage} />
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />

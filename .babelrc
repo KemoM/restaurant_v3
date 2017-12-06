@@ -1,13 +1,27 @@
 ﻿{
-  "presets": [
-    ["es2015", { "modules": false }],
-    "react",
-    "flow",
-    "stage-1" //Proposal: this is worth working on, can be changed to stage-3: Candidate: complete spec and initial browser implementations.
-  ],
-  "plugins": [
-    "react-hot-loader/babel", //not being used in this setup because we are using AspNetCore.SpaServices.Webpack
-    "transform-react-remove-prop-types"
-    //"transform-react-constant-elements", //should be enabled only in production
-  ]
+  "env": {
+    "development": {
+      "presets": [
+        [
+          "es2015",
+          { "modules": false }
+        ],
+        "react",
+        "flow",
+        "stage-1" //Proposal: this is worth working on, can be changed to stage-3: Candidate: complete spec and initial browser implementations.
+      ],
+      "plugins": [
+        "react-hot-loader/babel", //not being used in this setup because we are using AspNetCore.SpaServices.Webpack
+        "transform-react-remove-prop-types"
+        //"transform-react-constant-elements", //should be enabled only in production
+      ]
+    },
+    "test": {
+      "presets": [
+        "env",
+        "react",
+        "stage-1"
+      ]
+    }
+  }
 }
