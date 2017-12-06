@@ -1,0 +1,13 @@
+[ignore]
+
+[include]
+./client-app
+
+[libs]
+
+[lints]
+all=warn
+
+[options]
+
+[strict]
