@@ -141,6 +141,7 @@
     "babel",
     "axios",
     "authentication",
-    "redux-form"
+    "redux-form",
+    "jest"
   ]
 }
