@@ -14,8 +14,8 @@ import {
 } from 'reactstrap';
 
 import { userActions } from '../actions/user.actions';
-import { validate } from './forms/validators/login.validation';
-import { renderInputField } from './forms/input.field.form.group';
+import { validate } from '../components/forms/validators/login.validation';
+import { renderInputField } from '../components/forms/input.field.form.group';
 
 
 class LoginPage extends React.Component {
@@ -55,6 +55,7 @@ class LoginPage extends React.Component {
     }
   }
 
+  //TODO - Create Login component
   render() {
     const { loggingIn, pristine } = this.props; //eslint-disable-line
     const { username, password } = this.state;

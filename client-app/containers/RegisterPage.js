@@ -14,9 +14,9 @@ import {
 } from 'reactstrap';
 
 import { userActions } from '../actions/user.actions';
-import { renderInputField } from './forms/input.field.form.group';
-import { validate } from './forms/validators/register.validation';
-import { required } from './forms/validators/field.required';
+import { renderInputField } from '../components/forms/input.field.form.group';
+import { validate } from '../components/forms/validators/register.validation';
+import { required } from '../components/forms/validators/field.required';
 
 class RegisterPage extends React.Component {
   constructor(props) {
@@ -56,6 +56,7 @@ class RegisterPage extends React.Component {
     }
   }
 
+  //TODO - Create Register component
   render() {
     const { registering, pristine } = this.props;
     const { user } = this.state;

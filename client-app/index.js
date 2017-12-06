@@ -3,7 +3,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import configureStore, { history } from './store/configureStore';
-import Root from './components/Root';
+import Root from './containers/Root';
 import './styles/styles.scss'; // Webpack will run the associated loader and plug this into the page.
 //import registerServiceWorker from './registerServiceWorker';
 
@@ -21,8 +21,8 @@ render(
 //registerServiceWorker();
 
 if (module.hot) {
-  module.hot.accept('./components/Root', () => {
-    const NewRoot = require('./components/Root').default; // eslint-disable-line global-require
+  module.hot.accept('./containers/Root', () => {
+    const NewRoot = require('./containers/Root').default; // eslint-disable-line global-require
     render(
       <AppContainer>
         <NewRoot store={store} history={history} />
