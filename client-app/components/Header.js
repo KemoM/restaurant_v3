@@ -8,7 +8,7 @@ import {
   Button,
 } from 'reactstrap';
 
-import { userActions } from '../actions/user.actions';
+import { userActions } from '../actions/userActions';
 
 class Header extends Component {
   constructor(props) {

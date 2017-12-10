@@ -13,9 +13,9 @@ import {
   Form,
 } from 'reactstrap';
 
-import { userActions } from '../actions/user.actions';
-import { validate } from '../components/forms/validators/login.validation';
-import { renderInputField } from '../components/forms/input.field.form.group';
+import { userActions } from '../actions/userActions';
+import { loginValidation } from '../components/forms/validators/loginValidation';
+import { renderInputField } from '../components/forms/renderInputField';
 
 
 class LoginPage extends React.Component {
@@ -99,7 +99,7 @@ function mapStateToProps(state) {
 
 const formConfiguration = {  
   form: 'login',
-  validate,
+  validate: loginValidation,
 };
 
 export default connect(mapStateToProps)(reduxForm(formConfiguration)(LoginPage));

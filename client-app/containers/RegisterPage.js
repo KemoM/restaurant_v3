@@ -13,10 +13,10 @@ import {
   Form,
 } from 'reactstrap';
 
-import { userActions } from '../actions/user.actions';
-import { renderInputField } from '../components/forms/input.field.form.group';
-import { validate } from '../components/forms/validators/register.validation';
-import { required } from '../components/forms/validators/field.required';
+import { userActions } from '../actions/userActions';
+import { renderInputField } from '../components/forms/renderInputField';
+import { registerValidation } from '../components/forms/validators/registerValidation';
+import { fieldRequired } from '../components/forms/validators/fieldRequired';
 
 class RegisterPage extends React.Component {
   constructor(props) {
@@ -70,8 +70,8 @@ class RegisterPage extends React.Component {
               </CardHeader>
               <CardBody>
                 <Form onSubmit={this.handleSubmit} >
-                  <Field type="text" id="firstName" name="firstName" label="First Name" labelClass="pr-1" component={renderInputField} validate={required} value={user.firstName} onChange={this.handleChange} />
-                  <Field type="text" id="lastName" name="lastName" label="Last Name" component={renderInputField} validate={required} value={user.lastName} onChange={this.handleChange} />
+                  <Field type="text" id="firstName" name="firstName" label="First Name" labelClass="pr-1" component={renderInputField} validate={fieldRequired} value={user.firstName} onChange={this.handleChange} />
+                  <Field type="text" id="lastName" name="lastName" label="Last Name" component={renderInputField} validate={fieldRequired} value={user.lastName} onChange={this.handleChange} />
                   <Field type="text" id="username" name="username" label="Username" labelClass="pr-1" component={renderInputField} value={user.username} onChange={this.handleChange} />
                   <Field type="password" id="password" name="password" label="Password" component={renderInputField} value={user.password} onChange={this.handleChange} />
                   <Button type="submit" disabled={pristine || registering} size="sm" color="primary"><i className="fa fa-dot-circle-o" /> Register</Button>
@@ -102,7 +102,7 @@ function mapStateToProps(state) {
 
 const formConfiguration = {  
   form: 'register',
-  validate,
+  validate: registerValidation,
 };
 
 export default connect(mapStateToProps)(reduxForm(formConfiguration)(RegisterPage));
