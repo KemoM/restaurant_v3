@@ -17,27 +17,6 @@ class Header extends Component {
     this.logout = this.logout.bind(this);
   }
 
-  //TODO - check where these functions should go - picked up from bootstrap template
-  sidebarToggle(e) {
-    e.preventDefault();
-    document.body.classList.toggle('sidebar-hidden');
-  }
-
-  sidebarMinimize(e) {
-    e.preventDefault();
-    document.body.classList.toggle('sidebar-minimized');
-  }
-
-  mobileSidebarToggle(e) {
-    e.preventDefault();
-    document.body.classList.toggle('sidebar-mobile-show');
-  }
-
-  asideToggle(e) {
-    e.preventDefault();
-    document.body.classList.toggle('aside-menu-hidden');
-  }
-
   logout() {
     // reset login status
     const { dispatch } = this.props;
