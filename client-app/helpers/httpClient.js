@@ -1,5 +1,5 @@
 ﻿import axios from 'axios';
-import { config } from '../config/config.dev';
+import { config } from '../config/config';
 //import { authHeader } from '../helpers/auth-header';
 
 /**
