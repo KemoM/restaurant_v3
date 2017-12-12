@@ -10,11 +10,6 @@ class LoginPage extends React.Component {
     // reset login status
     //this.props.dispatch(userActions.logout()); //eslint-disable-line
 
-    this.state = {
-      username: '',
-      password: '',
-    };
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -28,10 +23,8 @@ class LoginPage extends React.Component {
   
   render() {
     return (
-      <div className="flex-row align-items-center">
-        <LoginForm
-          onSubmit={this.handleSubmit}
-        />
+      <div className="login-form">
+        <LoginForm onSubmit={this.handleSubmit} />
       </div>
     );
   }

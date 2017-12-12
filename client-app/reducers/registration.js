@@ -3,11 +3,18 @@
 export function registration(state = {}, action) {
   switch (action.type) {
     case userConstants.REGISTER_REQUEST:
-      return { registering: true };
+      return { 
+        registering: true,
+      };
     case userConstants.REGISTER_SUCCESS:
-      return { registering: false };
+      return { 
+        registering: false,
+      };
     case userConstants.REGISTER_FAILURE:
-      return { registering: false };
+      return { 
+        registering: false, 
+        errorMessage: action.error, 
+      };
     default:
       return state;
   }
