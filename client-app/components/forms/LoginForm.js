@@ -16,7 +16,7 @@ import {
 import { loginValidation } from './validators/loginValidation';
 import { renderInputField } from './renderInputField';
 
-class LoginForm extends React.Component {
+export class LoginForm extends React.Component {
   renderAlert() {
     if (this.props.errorMessage) {
       return (<div><span><strong>Error!</strong> {this.props.errorMessage}</span></div>);

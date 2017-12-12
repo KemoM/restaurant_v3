@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm Component should render without throwing an error 1`] = `
+<div
+  className="flex-row align-items-center"
+>
+  <Row
+    tag="div"
+  >
+    <Col
+      md="6"
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Card
+        tag="div"
+      >
+        <CardHeader
+          tag="div"
+        >
+          <strong>
+            Login
+          </strong>
+           Form
+        </CardHeader>
+        <CardBody
+          tag="div"
+        >
+          <Form
+            onSubmit={[Function]}
+            tag="form"
+          >
+            <Field
+              component={[Function]}
+              id="username"
+              label="Username"
+              labelClass="pr-1"
+              name="username"
+              type="text"
+              value="username test"
+            />
+            <Field
+              component={[Function]}
+              id="password"
+              label="Password"
+              name="password"
+              type="password"
+              value="password test"
+            />
+            <Button
+              color="primary"
+              disabled={false}
+              size="sm"
+              tag="button"
+              type="submit"
+            >
+              <i
+                className="fa fa-dot-circle-o"
+              />
+               Login
+            </Button>
+          </Form>
+        </CardBody>
+        <CardFooter
+          tag="div"
+        >
+          <span>
+            Or you want to register: 
+          </span>
+          <Link
+            className="btn btn-link"
+            replace={false}
+            to="/register"
+          >
+            Register
+          </Link>
+        </CardFooter>
+      </Card>
+    </Col>
+  </Row>
+</div>
+`;
