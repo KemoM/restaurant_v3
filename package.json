@@ -13,7 +13,10 @@
     "flow": "flow"
   },
   "jest": {
-    "setupFiles": [ "./tools/jestsetup.js", "./tools/mocks/storageMock.js" ],
+    "setupFiles": [
+      "./tools/jestsetup.js",
+      "./tools/mocks/storageMock.js"
+    ],
     "collectCoverageFrom": [
       "client-app/**/*.{js,jsx}",
       "!client-app/**/*.test.{js,jsx}",
